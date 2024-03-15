@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+
+void
+arr_accumulate (int arr[], int len)
+{
+  if (len == 1)
+	return;
+
+  arr_accumulate (arr, len - 1);
+
+  arr[len - 1] += arr[len - 2];
+
+
+}
+
+int
+main ()
+{
+  int arr[100000], len;
+  cin >> len;
+  for (int i = 0; i < len; i++)
+	cin >> arr[i];
+
+
+  arr_accumulate (arr, len);
+
+  for (int i = 0; i < len; i++)
+	cout << arr[i] << " ";
+  return 0;
+}
