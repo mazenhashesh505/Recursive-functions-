@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+bool
+is_paland (int arr[], int len, int start, int end)
+{
+  if (arr[start] != arr[end])
+	return false;
+
+  if (start == end)
+	return true;
+
+  return is_paland (arr, len, start + 1, end - 1);
+
+
+}
+
+int
+main ()
+{
+
+  int arr[100000], len;
+
+  cout << "enter lenght of array : ";
+  cin >> len;
+
+  cout << "\n" << "enter array`s numbers : ";
+  for (int i = 0; i < len; i++)
+	cin >> arr[i];
+
+  int start = 0, end = len - 1;
+
+  cout << is_paland (arr, len, start, end);
+  return 0;
+}
